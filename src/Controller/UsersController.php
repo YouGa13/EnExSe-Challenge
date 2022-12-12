@@ -70,7 +70,7 @@ class UsersController extends AbstractController
     }
 
     //////////   Edit user //////////////////
-    #[Route(' /api/v1/{userid}', name: 'edit_user')]
+    #[Route('/api/v1/{userid}', name: 'edit_user')]
     public function putUser(UsersRepository $usersRepository, string $userid, ManagerRegistry $doctrine, Request $request): Response
     {   
         try {
@@ -106,7 +106,7 @@ class UsersController extends AbstractController
 
 
     //////////   Delete user //////////////////
-    #[Route(' /api/v1/{userid}', name: 'delete_user')]
+    #[Route('/api/v1/{userid}', name: 'delete_user')]
     public function deleteUser(UsersRepository $usersRepository, string $userid, ManagerRegistry $doctrine): Response
     {   
         

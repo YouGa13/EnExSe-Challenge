@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserEnexse index{% endblock %}
+
+{% block body %}
+    <h1>UserEnexse index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Userid</th>
+                <th>Username</th>
+                <th>Fullname</th>
+                <th>Gender</th>
+                <th>UserAdress</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>DateOfBirth</th>
+                <th>CreatedAt</th>
+                <th>UserContact</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user_enexse in user_enexses %}
+            <tr>
+                <td>{{ user_enexse.userid }}</td>
+                <td>{{ user_enexse.username }}</td>
+                <td>{{ user_enexse.fullname }}</td>
+                <td>{{ user_enexse.gender }}</td>
+                <td>{{ user_enexse.userAdress }}</td>
+                <td>{{ user_enexse.email }}</td>
+                <td>{{ user_enexse.roles ? user_enexse.roles|json_encode : '' }}</td>
+                <td>{{ user_enexse.dateOfBirth ? user_enexse.dateOfBirth|date('Y-m-d') : '' }}</td>
+                <td>{{ user_enexse.createdAt ? user_enexse.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ user_enexse.userContact }}</td>
+                <td>
+                    <a href="{{ path('app_user_enexse_show', {'userid': user_enexse.userid}) }}">show</a>
+                    <a href="{{ path('app_user_enexse_edit', {'userid': user_enexse.userid}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_enexse_new') }}">Create new</a>
+{% endblock %}

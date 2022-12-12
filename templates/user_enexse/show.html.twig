@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserEnexse{% endblock %}
+
+{% block body %}
+    <h1>UserEnexse</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Userid</th>
+                <td>{{ user_enexse.userid }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ user_enexse.username }}</td>
+            </tr>
+            <tr>
+                <th>Fullname</th>
+                <td>{{ user_enexse.fullname }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ user_enexse.gender }}</td>
+            </tr>
+            <tr>
+                <th>UserAdress</th>
+                <td>{{ user_enexse.userAdress }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user_enexse.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user_enexse.roles ? user_enexse.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateOfBirth</th>
+                <td>{{ user_enexse.dateOfBirth ? user_enexse.dateOfBirth|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ user_enexse.createdAt ? user_enexse.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UserContact</th>
+                <td>{{ user_enexse.userContact }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_enexse_index') }}">back to list</a>
+
+    <a href="{{ path('app_user_enexse_edit', {'userid': user_enexse.userid}) }}">edit</a>
+
+    {{ include('user_enexse/_delete_form.html.twig') }}
+{% endblock %}
